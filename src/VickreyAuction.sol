@@ -84,7 +84,6 @@ contract VickreyAuction {
     function endAuction(uint256 itemId) external {
         Auction storage auction = auctions[itemId];
         require(block.timestamp >= auction.endOfRevealPeriod || auction.numUnrevealedBids == 0, "Auction not yet ended");
-
         delete auctions[itemId];
     }
 
