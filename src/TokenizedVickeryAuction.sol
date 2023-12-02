@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "openzeppelin-contracts/contracts/token/ERC721/IERC721.sol";
+import "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
 contract TokenizedVickeryAuction {
     struct Auction {
@@ -34,7 +34,7 @@ contract TokenizedVickeryAuction {
         uint32 bidPeriod,
         uint32 revealPeriod,
         uint96 reservePrice
-    ) external {
+    ) public virtual {
         require(startTime >= block.timestamp, "Start time must be in the future");
         require(bidPeriod > 0, "Bid period must be positive");
         require(revealPeriod > 0, "Reveal period must be positive");
